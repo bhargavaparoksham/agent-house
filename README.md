@@ -12,7 +12,7 @@ reviews it. You act as the final human approver before any task is marked done.
 ```
 agent-house/
 ├── bootstrap.sh              ← Run on VPS first
-├── init.py                   ← Run locally to create projects
+├── create-project.py         ← Run locally to create projects
 ├── agent-house-bot.service   ← systemd service (edit token/ID first)
 ├── bot/
 │   ├── master_bot.py         ← Telegram bot
@@ -91,10 +91,11 @@ systemctl status agent-house-bot
 # On your local machine:
 pip install paramiko
 
-# Edit init.py — set VPS_HOST to your server IP
-nano init.py
+#set VPS_HOST & VPS_USER to your server IP in .env
 
-python3 init.py
+# Run the project creation script, which will prompt you for details and then
+# create the project structure on the VPS.
+python3 create-project.py
 # Follow the prompts
 ```
 
@@ -174,4 +175,5 @@ cat /opt/agent-bots/registry.json | python3 -m json.tool
 ```bash
 ls /home/projects/your-project/control-center/
 cat /home/projects/your-project/control-center/in-progress.txt
+nano /home/projects/your-project/control-center/longterm-plan.txt
 ```
