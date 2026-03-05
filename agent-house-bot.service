@@ -1,0 +1,18 @@
+[Unit]
+Description=Agent House Telegram Bot
+After=network.target
+
+[Service]
+Type=simple
+User=root
+WorkingDirectory=/opt/agent-bots
+Environment=TELEGRAM_TOKEN=YOUR_BOT_TOKEN_HERE
+Environment=ADMIN_CHAT_ID=YOUR_TELEGRAM_USER_ID
+ExecStart=/opt/agent-bots/venv/bin/python3 /opt/agent-bots/master_bot.py
+Restart=always
+RestartSec=10
+StandardOutput=journal
+StandardError=journal
+
+[Install]
+WantedBy=multi-user.target

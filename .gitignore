@@ -1,0 +1,27 @@
+# Environment
+.env
+*.env
+
+# Secrets
+bot_state.json
+providers.json
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+venv/
+*.egg-info/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+
+# Temp
+/tmp/
+*.tmp
